@@ -7,7 +7,7 @@ import os
 from collections import deque
 import librosa
 import numpy as np
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from sklearn.preprocessing import LabelEncoder
 
 # SETUP AN AUDIO RECORDER
