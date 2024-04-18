@@ -1,0 +1,109 @@
+body {
+    font-family: "Inter", sans-serif;
+}
+
+h3 {
+    color: #fff
+}
+
+.corben-regular {
+    font-family: "Corben", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.corben-bold {
+    font-family: "Corben", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #fff
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+.bg {
+    background-color:#33a67b !important
+}
+  
+.position-relative {
+    height: 0; /* Set a height for the positioning container */
+    /* Adjust positioning values as needed */
+}
+
+.position-absolute-centered {
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.position-button {
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-btn {
+    border-radius: 25px; /* Adjust the border-radius to round the corners more */
+    background-color: #ff8fa5; /* Change the background color */
+    border: 2.5px solid #000; /* Add a black border */
+    width: 200px;
+    color: #000
+}
+
+.circle {
+    width: 250px;
+    height: 250px;
+    background-color: #febc00;
+    border-radius: 50%;
+    border: 3px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+}
+
+.small-circle {
+    width: 205px;
+    height: 205px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 3px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+}
+
+/* .navbar {
+    border-bottom: 2.5px solid #fff;
+}
+
+.custom-border {
+    border-bottom: 2.5px solid #fff; 
+} */
