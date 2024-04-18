@@ -36,15 +36,15 @@ class AudioRecorder:
         print(self.label_encoder.classes_)
         # ADD A BUFFER TO STORE THE PREDICTIONS AND DEFINE A CONSUME FUNCTION
         self.buffer = deque()
+    
     def start_recording(self):
+        self.frames.clear()
+        print("Listening for threshold level...")
         while True:
-            print("Listening for threshold level...")
-            while True:
-                data = np.frombuffer(self.stream.read(self.chunk), dtype=np.int16)
-                if np.max(data) > self.threshold:
-                    print("Threshold level reached. Recording started...")
-                    self.record()
-                    break
+            data = np.frombuffer(self.stream.read(self.chunk), dtype=np.int16)
+            if np.max(data) > self.threshold:
+                print("Threshold level reached. Recording started...")
+                return self.record()
 
     def record(self):
         start_time = time.time()
@@ -53,9 +53,7 @@ class AudioRecorder:
             self.lock.acquire()
             self.frames.append(data)
             self.lock.release()
-        self.stop_recording()
-        self.frames.clear()
-        time.sleep(0.5)  # Wait for a moment before restarting recording
+        return self.stop_recording()
 
     def stop_recording(self):
         print("Recording stopped...")
@@ -67,7 +65,7 @@ class AudioRecorder:
             wf.writeframes(b''.join(self.frames))
             self.lock.release()
         print(f"Recording saved as {self.filename}")
-        self.predict(self.filename)
+        return self.predict(self.filename)
 
     def predict(self, filename):
         # LOAD THE AUDIO FILE
@@ -90,6 +88,8 @@ class AudioRecorder:
         print(f"For audio file {audio_file}, predicted class: {predicted_categorical_label}")
         # ALSO APPEND TO PREDICTION BUFFER
         self.buffer.append(f"predicted class: {predicted_categorical_label}")
+
+        return predicted_categorical_label
 
     def consume(self):
         while len(self.buffer) == 0:
